@@ -1,0 +1,939 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;700&display=swap");
+
+$white: #fff;
+$black: #000;
+$bg-gradient: linear-gradient(
+  151deg,
+  rgba(50, 108, 255, 1) 0%,
+  rgba(38, 255, 242, 1) 100%
+);
+$bg-gradient-safe: rgb(50, 108, 255);
+$bx-shadow: 0px 4px 4px 5px rgba(50, 241, 255, 0.3);
+
+$r_minmob: 320px;
+$r_mob_360: 360px;
+$r_mob_400: 400px;
+$r_mob_500: 500px;
+$r_mob_600: 600px;
+$r_tab: 768px;
+$r_desk: 1000px;
+$r_desk_hd: 1200px;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  min-width: 320px;
+  max-width: 1600px;
+  width: 100%;
+  height: 100%;
+  font-family: "Mulish";
+  margin: 0;
+  background-color: $black;
+}
+
+.main__header {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background: $black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  .header__logo  img {
+    width: 10rem;
+
+    @media (min-width: $r_desk_hd ) {
+      width: 15rem;
+    }
+  }
+}
+.header__nav {
+  display: flex;
+  list-style: none;
+  font: {
+    size: 1.6rem;
+    weight: bold;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: $r_tab) {
+      flex-direction: row;
+
+      .header__item {
+        padding: 1rem;
+        font-size: 2rem;
+      }
+      .header__link::after {
+        content: "";
+        opacity: 0;
+        display: block;
+        width: 100%;
+        height: 0.2rem;
+        background: $bg-gradient;
+        border-radius: 50px;
+      }
+      .active {
+        opacity: 1;
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    @media (min-width: $r_desk) {
+      flex-direction: row;
+
+      .header__item {
+        padding: 2rem;
+        font-size: 3rem;
+      }
+    }
+  }
+  .header__link {
+    text-decoration: none;
+    color: $white;
+    opacity: 0.5;
+  }
+}
+
+.main__banner {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-image: url(../image/banner/banner.jpg);
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  .banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .banner__title {
+    font-family: "Marcellus";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    color: $white;
+    margin-bottom: 2rem;
+  }
+
+  .banner__info {
+    width: 70%;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: $white;
+  }
+  .banner__info--year {
+    font-size: 1.6rem;
+  }
+  .banner__info--age {
+    text-align: center;
+
+    font-size: 1.6rem;
+    position: relative;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 5.775rem;
+      height: 2.3rem;
+      background-image: url(../image/banner/age.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      position: absolute;
+      left: -1.2rem;
+      top: -0.15rem;
+    }
+  }
+  .banner__info--time {
+    font-size: 1.6rem;
+  }
+
+  .banner__info--rating {
+    font-size: 1.6rem;
+
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      background-image: url(../image/banner/star.png);
+      width: 1.6rem;
+      height: 1.6rem;
+      left: 3rem;
+      top: 0.2rem;
+    }
+  }
+
+  .banner__text {
+    width: 80%;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: $white;
+  }
+
+  .buttons {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .watch {
+    padding-left: 3.8rem;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 0.1rem;
+    background: $bg-gradient;
+    box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+    opacity: 0.9;
+    border-radius: 100px;
+    border-color: $black;
+    font-family: "Mulish";
+    font-style: normal;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: $white;
+    position: relative;
+    cursor: pointer;
+    border-width: 0;
+    border-style: none;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1.4rem;
+      height: 1.8rem;
+      background-image: url(../image/banner/play.png);
+      top: 0.5rem;
+      left: 1.5rem;
+    }
+  }
+  .watch:hover {
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  .information {
+    width: 15rem;
+    height: 3rem;
+    margin-left: 3rem;
+    background: $white;
+    border-radius: 10rem;
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #323232;
+    border-color: $black;
+    cursor: pointer;
+    border-width: 0;
+    border-style: none;
+  }
+
+  .information:hover {
+    background-color: $black;
+    color: $white;
+    transition: all 0.5s ease-out;
+  }
+
+  @media (min-width: $r_tab) {
+    height: 50rem;
+    .banner__title {
+      font-size: 7rem;
+      line-height: 7rem;
+    }
+    .banner__info {
+      width: 40%;
+      background-color: #000;
+      opacity: 0.8;
+      border-radius: 20rem;
+    }
+    .banner__text {
+      width: 70%;
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      background-color: #000;
+      opacity: 0.8;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+  }
+  @media (min-width: $r_desk) {
+    height: 65rem;
+  }
+  @media (min-width: $r_desk_hd) {
+    background-size: 60% 76.6rem;
+    background-position: center right;
+    flex-direction: row;
+    .banner {
+      width: 40%;
+      box-shadow: 100px 0px 100px $black;
+    }
+
+    .banner__title {
+      min-width: 38rem;
+      height: 16.1rem;
+      font-size: 7rem;
+      line-height: 7rem;
+      margin-top: 12.2rem;
+      margin-bottom: 3.9rem;
+      padding-left: 0.1rem;
+    }
+    .banner__info {
+      width: 70%;
+      font-weight: 800;
+      display: flex;
+    }
+    .banner__text {
+      width: 90%;
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 2.8rem;
+      color: #c2c2c2;
+    }
+  }
+}
+
+.shows {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  margin-top: 2.1rem;
+
+  .title {
+    margin-left: 2rem;
+  }
+
+  .posters__title {
+    position: relative;
+  }
+
+  .posters__title--link::before {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 3.5rem;
+    background: $bg-gradient;
+    border-radius: 50px;
+    left: -0.5rem;
+  }
+  .posters__title--link {
+    color: $white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1.1rem;
+    font-weight: 700;
+    font-family: "Mulish";
+  }
+
+  .shows__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem;
+
+    .shows__active {
+      box-shadow: $bx-shadow;
+    }
+
+    img {
+      width: 19rem;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
+
+    @media (min-width: $r_mob_600) {
+      margin: 2rem;
+      img {
+        width: 19rem;
+        transition: 0.2s ease box-shadow;
+      }
+      img:hover {
+        box-shadow: $bx-shadow;
+        transition: 0.2s ease box-shadow;
+      }
+    }
+    @media (min-width: $r_tab) {
+      margin: 1rem;
+      img {
+        width: 23.4rem;
+      }
+    }
+    @media (min-width: $r_desk) {
+      margin: 2rem;
+      img {
+        width: 14.8rem;
+      }
+    }
+
+    @media (min-width: $r_desk_hd) {
+      margin: 2rem;
+      img {
+        width: 19rem;
+      }
+    }
+  }
+}
+
+.movies {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  margin-top: 2.1rem;
+
+  .title {
+    margin-left: 2rem;
+  }
+
+  .posters__title {
+    position: relative;
+  }
+
+  .posters__title--link::before {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 3.5rem;
+    background: $bg-gradient;
+    border-radius: 50px;
+    left: -0.5rem;
+  }
+  .posters__title--link {
+    color: $white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1.1rem;
+    font-weight: 700;
+    font-family: "Mulish";
+  }
+
+  .movies__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem;
+
+    .movies__active {
+      box-shadow: $bx-shadow;
+    }
+
+    img {
+      width: 19rem;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
+
+    @media (min-width: $r_mob_600) {
+      margin: 2rem;
+      img {
+        width: 19rem;
+        transition: 0.2s ease box-shadow;
+      }
+      img:hover {
+        box-shadow: $bx-shadow;
+        transition: 0.2s ease box-shadow;
+      }
+    }
+    @media (min-width: $r_tab) {
+      margin: 1rem;
+      img {
+        width: 23.4rem;
+      }
+    }
+    @media (min-width: $r_desk) {
+      margin: 2rem;
+      img {
+        width: 14.8rem;
+      }
+    }
+
+    @media (min-width: $r_desk_hd) {
+      margin: 2rem;
+      img {
+        width: 19rem;
+      }
+    }
+  }
+  .button {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+  .button_more {
+    width: 14.1rem;
+    height: 5rem;
+    margin-bottom: 2.1rem;
+    background: $bg-gradient;
+    box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+    opacity: 0.9;
+    border-radius: 100px;
+    border-color: $black;
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: $white;
+    cursor: pointer;
+    border-width: 0px;
+    border-style: none;
+    border-image: none;
+
+    &:hover {
+      box-shadow: none;
+      opacity: 1;
+    }
+  }
+}
+
+.genres {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  margin-top: 2.1rem;
+
+  .posters__title {
+    margin-left: 2rem;
+    position: relative;
+  }
+
+  .posters__title--link::before {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 3.5rem;
+    background: $bg-gradient;
+    border-radius: 50px;
+    left: -0.5rem;
+  }
+  .posters__title--link {
+    color: $white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1.1rem;
+    font-weight: 700;
+    font-family: "Mulish";
+  }
+
+  .genres__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+
+    .genres__item {
+      margin: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 20px;
+      font-family: "Mulish";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8rem;
+      line-height: 2rem;
+      opacity: 0.9;
+      transition: opacity 0.5s ease-out;
+
+      &:hover {
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+
+      &.romance {
+        background: linear-gradient(109.31deg, #fd093f 2.4%, #f383f1 100%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.drama {
+        background: linear-gradient(114.5deg, #0fffda 2.22%, #3cdb77 68.84%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+
+      &.historical {
+        background: linear-gradient(109.31deg, #b936ff 2.4%, #57deda 100%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.action {
+        background: linear-gradient(
+          109.31deg,
+          #fd093f 2.4%,
+          #fb1378 2.41%,
+          #fccb1a 100%
+        );
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.sci {
+        background: linear-gradient(109.31deg, #ff6472 2.4%, #fda75d 100%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.horror {
+        background: linear-gradient(110.16deg, #13547a 2.37%, #80d0c7 96.77%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.comedy {
+        background: linear-gradient(109.93deg, #fff77b 2.37%, #ffbf42 50%);
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+      &.documentary {
+        background: linear-gradient(
+          109.31deg,
+          #1fa2ff 2.4%,
+          #1fa2ff 2.41%,
+          #1f535c 97.46%
+        );
+        min-width: 34rem;
+        height: 19.8rem;
+      }
+
+      h3 {
+        margin: 1rem auto;
+        color: $white;
+      }
+
+      @media (min-width: $r_desk_hd) {
+        margin: 3rem;
+      }
+
+      @media (min-width: 140rem) {
+        margin: 2rem;
+      }
+    }
+  }
+}
+.actors {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  margin-top: 2.1rem;
+
+  .posters__title {
+    margin-left: 2rem;
+    position: relative;
+  }
+
+  .posters__title--link::before {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 3.5rem;
+    background: $bg-gradient;
+    border-radius: 50px;
+    left: -0.5rem;
+  }
+  .posters__title--link {
+    color: $white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1.1rem;
+    font-weight: 700;
+    font-family: "Mulish";
+  }
+  .actors__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+
+    .actors__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Mulish";
+      font-weight: 700;
+      font-size: 1.8rem;
+      line-height: 2rem;
+      flex: 0 0 14%;
+
+      a {
+        text-decoration: none;
+      }
+
+      h3 {
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 20px;
+        color: $white;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.ad {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  border-radius: 2rem;
+
+  .ad__item {
+    margin: 1rem auto;
+    img {
+      width: 36rem;
+    }
+    @media (min-width: $r_tab) {
+      img {
+        width: 70rem;
+      }
+    }
+    @media (min-width: $r_desk) {
+      img {
+        width: 63rem;
+        border-radius: 2rem;
+      }
+    }
+    @media (min-width: $r_desk_hd) {
+      img {
+        height: 30rem;
+        width: 53rem;
+        border-radius: 2rem 0 0 2rem;
+      }
+    }
+  }
+
+  .ad__item.year {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    width: 36rem;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      36deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(13, 26, 115, 0.9023984593837535) 44%,
+      rgba(0, 0, 0, 1) 91%
+    );
+
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.1);
+    // border-radius: 0 2rem 2rem 0;
+    font-family: "Mulish";
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1rem;
+
+    img {
+      padding-top: 1rem;
+      width: 31rem;
+      height: 10rem;
+    }
+    h3 {
+      margin: 2rem auto;
+      color: #fff;
+    }
+
+    @media (min-width: $r_tab) {
+      width: 70rem;
+      height: 30rem;
+
+      img {
+        width: 60rem;
+        height: 20rem;
+      }
+    }
+    @media (min-width: $r_desk) {
+      border-radius: 2rem;
+      img {
+        width: 63rem;
+      }
+    }
+    @media (min-width: $r_desk_hd) {
+      border-radius: 0 2rem 2rem 0;
+      width: 53rem;
+      img {
+        width: 53rem;
+        height: 20rem;
+      }
+    }
+  }
+
+  @media (min-width: $r_desk_hd) {
+    flex-direction: row;
+    width: 106rem;
+    height: 34.1rem;
+    margin: 2rem auto;
+  }
+}
+
+.offer {
+  border-bottom: 0.1rem solid #2f2e2e;
+  width: 100%;
+  height: 100%;
+  // max-width: 122.4rem;
+
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .offer__items {
+    background-image: url(../image/offer/offer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    width: 34rem;
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+
+    .offer__title {
+      padding-left: 1rem;
+      color: $white;
+    }
+
+    .offer__btn {
+      width: 14.1rem;
+      height: 3rem;
+      margin-left: 1rem;
+      background: $bg-gradient;
+      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+      opacity: 0.9;
+      border-radius: 100px;
+      border-color: $black;
+      font-family: "Mulish";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: $white;
+      cursor: pointer;
+      border-width: 0px;
+      border-style: none;
+      border-image: none;
+
+      &:hover {
+        box-shadow: none;
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: $r_tab) {
+      width: 70rem;
+      height: 20rem;
+      .offer__title {
+        font-size: 3rem;
+      }
+      .offer__btn {
+        width: 14.1rem;
+        height: 5rem;
+        font-size: 1.6rem;
+        margin-right: 1.5rem;
+      }
+    }
+    @media (min-width: $r_desk) {
+      width: 100rem;
+      height: 27rem;
+      .offer__title {
+        font-size: 5rem;
+      }
+      .offer__btn {
+        width: 20rem;
+        height: 6rem;
+        font-size: 2rem;
+        margin-right: 2rem;
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #101012;
+
+  .logo {
+    display: none;
+  }
+
+  .link {
+    width: 40%;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    list-style: none;
+    font-family: "Mulish";
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 1rem;
+    line-height: 2rem;
+  }
+  a {
+    text-decoration: none;
+    color: #c2c2c2;
+  }
+
+  @media (min-width: $r_tab) {
+    height: 20rem;
+    justify-content: center;
+    .logo {
+      display: flex;
+      img {
+        width: 10rem;
+      }
+    }
+    .link {
+      width: 13%;
+      font-size: 1.2rem;
+      margin: 2rem;
+      padding: 0;
+      line-height: 2.5rem;
+    }
+  }
+}
